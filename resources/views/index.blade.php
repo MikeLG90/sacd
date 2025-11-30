@@ -46,21 +46,20 @@
         <div class="card stat-card">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div class="avatar-md bg-light bg-opacity-50 rounded">
-                    <iconify-icon icon="solar:alarm-bold-duotone" class="fs-32 text-danger avatar-title"></iconify-icon>
+                    <iconify-icon icon="solar:file-bold-duotone" class="fs-32 text-danger avatar-title"></iconify-icon>
                 </div>
                 <div class="text-end">
-                    <p class="text-muted mb-0">Emergencias activas</p>
-                    <h3 class="text-dark mt-1 mb-0">12</h3>
+                    <p class="text-muted mb-0">Reportes generados</p>
+                    <h3 class="text-dark mt-1 mb-0">1</h3>
                 </div>
             </div>
             <div class="card-footer bg-light bg-opacity-50 py-2 d-flex justify-content-between">
-                <span class="text-success"><i class="bx bxs-up-arrow fs-12"></i> +12%</span>
                 <a href="#" class="text-reset fw-semibold fs-12">Ver detalles</a>
             </div>
         </div>
     </div>
 
-    <!-- Ambulancias disponibles -->
+    <!-- Ambulancias disponibles 
     <div class="col-md-6 col-xl-3">
         <div class="card stat-card">
             <div class="card-body d-flex justify-content-between align-items-center">
@@ -73,26 +72,24 @@
                 </div>
             </div>
             <div class="card-footer bg-light bg-opacity-50 py-2 d-flex justify-content-between">
-                <span class="text-success"><i class="bx bxs-up-arrow fs-12"></i> 5%</span>
                 <a href="#" class="text-reset fw-semibold fs-12">Ver flota</a>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!-- Drones activos -->
     <div class="col-md-6 col-xl-3">
         <div class="card stat-card">
             <div class="card-body d-flex justify-content-between align-items-center">
                 <div class="avatar-md bg-light bg-opacity-50 rounded">
-                    <iconify-icon icon="solar:drone-bold-duotone" class="fs-32 text-info avatar-title"></iconify-icon>
+                    <iconify-icon icon="mdi:drone" class="fs-32 text-info avatar-title"></iconify-icon>
                 </div>
                 <div class="text-end">
                     <p class="text-muted mb-0">Drones operativos</p>
-                    <h3 class="text-dark mt-1 mb-0">3</h3>
+                    <h3 class="text-dark mt-1 mb-0">1</h3>
                 </div>
             </div>
             <div class="card-footer bg-light bg-opacity-50 py-2 d-flex justify-content-between">
-                <span class="text-danger"><i class="bx bxs-down-arrow fs-12"></i> -1%</span>
                 <a href="#" class="text-reset fw-semibold fs-12">Ver drones</a>
             </div>
         </div>
@@ -106,12 +103,11 @@
                     <iconify-icon icon="solar:hospital-bold-duotone" class="fs-32 text-success avatar-title"></iconify-icon>
                 </div>
                 <div class="text-end">
-                    <p class="text-muted mb-0">Hospitales operativos</p>
-                    <h3 class="text-dark mt-1 mb-0">18</h3>
+                    <p class="text-muted mb-0">Hospitales</p>
+                    <h3 class="text-dark mt-1 mb-0">6</h3>
                 </div>
             </div>
             <div class="card-footer bg-light bg-opacity-50 py-2 d-flex justify-content-between">
-                <span class="text-success"><i class="bx bxs-up-arrow fs-12"></i> +3%</span>
                 <a href="#" class="text-reset fw-semibold fs-12">Ver mapa</a>
             </div>
         </div>
@@ -123,7 +119,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h4 class="card-title mb-0">Mapa de Incidentes y Disponibilidad</h4>
+                <h4 class="card-title mb-0">Mapa de disponibilidad</h4>
                 <button class="btn btn-sm btn-outline-primary">
                     <i class="bx bx-refresh"></i> Actualizar
                 </button>
@@ -141,7 +137,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title mb-0">
-                    <i class="bx bx-alarm text-danger"></i> Últimas Emergencias
+                    <i class="bx bx-alarm text-danger"></i> Últimas emergencias
                 </h4>
                 <a href="#" class="btn btn-sm btn-soft-primary">Ver todas</a>
             </div>
@@ -174,17 +170,52 @@
     </div>
 </div>
 
-<!-- TABLA 2: HOSPITALES CERCANOS -->
+<!-- TABLA 2: VIALIDADES CERCANOS -->
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h4 class="card-title mb-0">
-                    <i class="bx bx-hospital text-success"></i> Hospitales Cercanos
+                    Listado de vialidades
                 </h4>
-                <button class="btn btn-sm btn-soft-info">
-                    <i class="bx bx-map"></i> Ver en mapa
-                </button>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover table-centered mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Colonia</th>
+                                <th>Localidad</th>
+                                <th>Descripción</th>
+                                <th>Estado</th>
+                                <th>Alertas</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-vialidades">
+                            <!-- Los datos se cargarán dinámicamente -->
+                            <tr>
+                                <td colspan="8" class="text-center py-4 text-muted">
+                                    Cargando datos...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- TABLA 3: HOSPITALES CERCANOS -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 class="card-title mb-0">
+                    <i class="bx bx-hospital text-success"></i> Listado de hospitales
+                </h4>
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
@@ -229,7 +260,7 @@ let mapa = null;
 async function obtenerTDatos() {
     const r = await fetch("/api/datos-hackaton", { method: 'POST' });
     const data = await r.json();
-    console.log(data);
+    //console.log(data);
     return data;
 }
 
@@ -241,6 +272,39 @@ function colorPorEstado(estado) {
     if (estado.includes("inundación")) return "blue";
     if (estado.includes("tráfico pesado")) return "purple";
     return "green";
+}
+
+// Cargar vialidades en la tabla
+async function cargarVialidades() {
+    const api = await obtenerTDatos();
+    const vialidades = api.datosTablas.h25_vialidades;
+    const tbody = document.getElementById("tabla-vialidades");
+    tbody.innerHTML = "";
+    
+    if (vialidades.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="8" class="text-center py-4 text-muted">
+                    No hay vialidades disponibles
+                </td>
+            </tr>
+        `;
+        return;
+    }
+    
+    vialidades.forEach(v => {
+        tbody.innerHTML += `
+            <tr>
+                <td><strong>${v.vialidad}</strong></td>
+                <td>${v.colonia ?? "No definido"}</td>
+                <td>${v.localidad ?? "No definido"}</td>
+                <td>${v.descripcion_vialidad ?? "No definido"}</td>
+                <td>${v.estado ?? "No definido"}</td>
+                <td>${v.tipo_alertas ?? "No definido"}</td>
+            </tr>
+        `;
+        console.log(v.vialidad);
+    });
 }
 
 // Cargar hospitales en la tabla
@@ -329,6 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .bindPopup("<b>Chetumal, Q.Roo</b><br>Centro.")
         .openPopup();
     
+    cargarVialidades();
     cargarHospitales();
     cargarVialidadesEnMapa();
 

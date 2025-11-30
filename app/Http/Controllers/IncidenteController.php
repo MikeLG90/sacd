@@ -41,6 +41,6 @@ public function store(Request $request)
     public function show($id)
     {
         $incidente = Incidente::findOrFail($id);
-        return view('incidentes.show', compact('incidente'));
+        return view('reportes.incidentes', compact('incidente'));
     }
 }

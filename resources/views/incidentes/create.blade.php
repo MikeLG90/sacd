@@ -63,26 +63,46 @@
                     <polygon points="23 7 16 12 23 17 23 7"/>
                     <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
                 </svg>
-                <h4>Transmisión en Vivo del Dron</h4>
+                <h4 class="text-white">Transmisión en vivo del dron</h4>
             </div>
+
             <div class="card-body">
                 <div class="video-container">
                     <div class="live-badge"><span class="pulse-dot"></span>EN VIVO</div>
-                    <video id="video-dron" width="100%" height="240" controls autoplay muted loop>
-                        <source src="{{ asset('videos/dron_simulado.mp4') }}" type="video/mp4">
-                        Tu navegador no soporta video.
-                    </video>
+
+                    <!-- Video HLS -->
+                    <video id="video-dron" controls autoplay muted style="width:100%; height:240px;"></video>
+
                 </div>
             </div>
         </div>
 
-                <div class="card card-custom mb-4">
+        <!-- HLS.js desde CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+        <script>
+            const video = document.getElementById('video-dron');
+            const src = "http://192.168.100.15:8080/hls/drone1/index.m3u8";
+
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(src);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = src;
+                video.addEventListener('loadedmetadata', () => video.play());
+            } else {
+                alert('Tu navegador no soporta HLS');
+            }
+        </script>
+
+        <div class="card card-custom mb-4">
             <div class="card-header-custom">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                 </svg>
-                <h4>Mapa del Dron - Posición en Tiempo Real</h4>
+                <h4 class="text-white">Mapa del incidente - Posición en tiempo real</h4>
             </div>
             <div class="card-body">
                 <div class="info-badge">
@@ -107,7 +127,7 @@
                     <line x1="12" y1="9" x2="12" y2="13"/>
                     <line x1="12" y1="17" x2="12.01" y2="17"/>
                 </svg>
-                <h4>Registrar Nuevo Incidente</h4>
+                <h4 class="text-white">Registrar nuevo incidente</h4>
             </div>
             <div class="card-body">
 <form action="{{ route('incidentes.store') }}" method="POST">
@@ -145,7 +165,7 @@
     </div>
 
     <div class="mb-3">
-        <label>Hora del Incidente</label>
+        <label>Hora del incidente</label>
         <input type="datetime-local" name="hora" class="form-control" required>
     </div>
 
@@ -159,12 +179,12 @@
     </div>
 
     <div class="mb-3">
-        <label>Número de Víctimas</label>
+        <label>Número de víctimas</label>
         <input type="number" name="numero_victimas" class="form-control">
     </div>
 
     <div class="mb-3">
-        <label>Gravedad de Heridos</label>
+        <label>Gravedad de heridos</label>
         <input type="text" name="gravedad_heridos" class="form-control">
     </div>
 
@@ -246,7 +266,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Marcador del dron
     const marker = L.marker([dronCoords.lat, dronCoords.lng], { draggable:true })
         .addTo(mapa)
-        .bindPopup("Posición del dron - Arrastra para mover")
+        .bindPopup("Posición del incidente - Arrastra para mover")
         .openPopup();
 
     marker.on('dragend', function() {

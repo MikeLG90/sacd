@@ -39,8 +39,8 @@
                                 <td style="padding: 16px; color: #6c757d;">{{ $dron->nombre }}</td>
                                 <td style="padding: 16px; color: #6c757d;">{{ $dron->modelo }}</td>
                                 <td style="padding: 16px;">
-                                    @if($dron->estado === 'Activo')
-                                        <span class="badge d-inline-flex align-items-center gap-1" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 12px;">
+                                    @if($dron->estado === 'Ocupado')
+                                        <span class="badge d-inline-flex align-items-center gap-1" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 12px;">
                                             {{ $dron->estado }}
                                         </span>
                                     @elseif($dron->estado === 'Mantenimiento')
@@ -48,7 +48,7 @@
                                             {{ $dron->estado }}
                                         </span>
                                     @else
-                                        <span class="badge d-inline-flex align-items-center gap-1" style="background: linear-gradient(135deg, #dc3545 0%, #c82333 100%); padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 12px;">
+                                        <span class="badge d-inline-flex align-items-center gap-1" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 12px;">
                                             {{ $dron->estatus }}
                                         </span>
                                     @endif

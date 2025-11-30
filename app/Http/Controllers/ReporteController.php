@@ -28,10 +28,10 @@ public function generarPDF()
     return $pdf->download('reporte_incidentes.pdf');
 }
 
-        public function generarPDFIndividual($id)
-    {
-        $incidente = \App\Models\Incidente::findOrFail($id);
-        $pdf = Pdf::loadView('reportes.pdf.incidente_individual', compact('incidente'));
-        return $pdf->download("reporte_incidente_{$id}.pdf");
-    }
+public function generarPDFIndividual($id)
+{
+    $incidente = \App\Models\Incidente::findOrFail($id);
+    $pdf = Pdf::loadView('reportes.pdf.incidente_individual', compact('incidente'));
+    return $pdf->download("reporte_incidente_{$id}.pdf");
+}
 }

@@ -2,13 +2,11 @@
      <!-- Sidebar Logo -->
      <div class="logo-box">
           <a href="{{ route('any', 'index')}}" class="logo-dark">
-               <img src="/images/logo-sm.png" class="logo-sm" alt="logo sm">
-               <img src="/images/logo-dark.png" class="logo-lg" alt="logo dark">
+               <img src="/images/logo-sm.png" style="height: 60px; margin-top: 10px; margin-bottom: 10px" alt="logo sm">
           </a>
 
           <a href="{{ route('any', 'index')}}" class="logo-light">
-               <img src="/images/logo-sm.png" class="logo-sm" alt="logo sm">
-               <img src="/images/logo-light.png" class="logo-lg" alt="logo light">
+               <img src="/images/logo-sm.png" style="height: 60px; margin-top: 10px; margin-bottom: 10px" alt="logo sm">
           </a>
      </div>
 
@@ -21,7 +19,7 @@
 
           <ul class="navbar-nav" id="navbar-nav">
 
-               <li class="menu-title">Menu</li>
+               <li class="menu-title">Menú</li>
 
                <li class="nav-item">
                     <a class="nav-link" href="{{ route('any', 'index')}}">
@@ -29,51 +27,10 @@
                               <iconify-icon icon="solar:home-2-broken"></iconify-icon>
                          </span>
                          <span class="nav-text"> Dashboard </span>
-                         <span class="badge bg-success badge-pill text-end">9+</span>
                     </a>
                </li>
 
-               <li class="nav-item">
-                    <a class="nav-link menu-arrow" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                         <span class="nav-icon">
-                              <iconify-icon icon="solar:siderbar-broken"></iconify-icon>
-                         </span>
-                         <span class="nav-text"> Layouts </span>
-                    </a>
-                    <div class="collapse" id="sidebarLayouts">
-                         <ul class="nav sub-navbar-nav">
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" href="{{ route('second', ['layout-eg' ,'light-sidenav'])}}" target="_blank">Light Sidenav</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" href="{{ route('second', ['layout-eg', 'dark-topnav'])}}" target="_blank">Dark Topnav</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" href="{{ route('second', ['layout-eg', 'simple-sidenav'])}}" target="_blank">Simple Sidenav</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" href="{{ route('second', ['layout-eg', 'small-sidenav'])}}" target="_blank">Small Sidenav</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" href="{{ route('second', ['layout-eg', 'small-hover'])}}" target="_blank">Small Hover</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link disabled" href="javascript:void(0);">Small Hover Active</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" href="{{ route('second', ['layout-eg', 'hidden-sidenav'])}}" target="_blank">Hidden Sidenav</a>
-                              </li>
-                              <li class="sub-nav-item">
-                                   <a class="sub-nav-link" target="_blank" href="{{ route('second', ['layout-eg', 'layout-dark'])}}">
-                                        <span class="nav-text">Dark Mode</span>
-                                        <span class="badge badge-soft-danger badge-pill text-end">Hot</span>
-                                   </a>
-                              </li>
-                         </ul>
-                    </div>
-               </li>
-
-               <li class="menu-title">Apps</li>
+               <li class="menu-title">Módulos</li>
 
                <li class="nav-item">
                     <a class="nav-link" href="/reportes/incidentes">
