@@ -311,6 +311,7 @@ async function cargarVialidades() {
 async function cargarHospitales() {
     const api = await obtenerTDatos();
     const hospitales = api.datosTablas.h25_hospi;
+    console.log(hospitales);
     const tbody = document.getElementById("tabla-hospitales");
     tbody.innerHTML = "";
     
@@ -381,6 +382,7 @@ async function cargarVialidadesEnMapa() {
 
 // Inicialización del mapa y drones volando
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("hola");
     mapa = L.map('mapa-chetumal').setView([18.5036, -88.3055], 13);
     
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -28,6 +28,12 @@
                     </div>
 
                     <!-- User -->
+                                                   <h6 class="dropdown-header">Bienvenido {{ auth()->user()->name }}!</h6>
+@foreach (auth()->user()->roles as $role)
+    <span class="px-2 py-1 bg-blue-200 text-blue-800 rounded">
+        {{ $role->name }}
+    </span>
+@endforeach
                     <div class="dropdown topbar-item">
                          <a type="button" class="topbar-button" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <span class="d-flex align-items-center">
@@ -37,12 +43,23 @@
                          <div class="dropdown-menu dropdown-menu-end">
                               <!-- item-->
                               <h6 class="dropdown-header">Bienvenido Miguel!</h6>
+@foreach (auth()->user()->roles as $role)
+    <span class="px-2 py-1 bg-blue-200 text-blue-800 rounded">
+        {{ $role->name }}
+    </span>
+@endforeach
 
                               <div class="dropdown-divider my-1"></div>
 
-                              <a class="dropdown-item text-danger" href="{{ route('second', ['auth', 'login'])}}">
-                                   <i class="bx bx-log-out fs-18 align-middle me-1"></i><span class="align-middle">Logout</span>
-                              </a>
+<a class="dropdown-item text-danger" href="{{ route('logout') }}"
+   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+    <i class="bx bx-log-out fs-18 align-middle me-1"></i>
+    <span class="align-middle">Logout</span>
+</a>
+
+<form id="logout-form" action="{{ url('/logout/user') }}" method="POST" style="display: none;">
+    @csrf
+</form>
                          </div>
                     </div>
                </div>

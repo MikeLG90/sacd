@@ -5,6 +5,8 @@ use App\Http\Controllers\RoutingController;
 use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\IncidenteController;
 use App\Http\Controllers\DroneController;
+use App\Http\Controllers\HospitalesController;
+use App\Http\Controllers\AmbulanciaController;
 
 
 
@@ -18,6 +20,13 @@ use App\Http\Controllers\DroneController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::resource('ambulancias', AmbulanciaController::class);
+
+
+// rutas para hospitales
+Route::get('/hospitales/index', [HospitalesController::class, 'index']);
+
 
 Route::get('/drones/index', [DroneController::class, 'index']);
 
