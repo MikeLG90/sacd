@@ -248,127 +248,135 @@
 @section('script')
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    // Configuración inicial
     const wsUrl = "ws://localhost:8080";
     const statusEl = document.getElementById("connection-status");
     const statusTextEl = document.getElementById("status-text");
     const statusDotEl = statusEl.querySelector(".status-dot");
     let totalIncidentes = 0;
     
-    console.log("Inicializando conexión segura...");
+    console.log("Conectando a C5 Secure Network...");
     let ws = new WebSocket(wsUrl);
-    
-    // Funciones de utilidad para estado
-    const setStatus = (isConnected) => {
-        if (isConnected) {
-            statusDotEl.className = 'status-dot dot-success';
-            statusTextEl.innerText = 'Sistema Online';
-            statusTextEl.className = 'text-dark';
-        } else {
-            statusDotEl.className = 'status-dot dot-danger';
-            statusTextEl.innerText = 'Desconectado';
-            statusTextEl.className = 'text-secondary';
-        }
-    };
 
-    ws.onopen = function() {
-        console.log("Conexión establecida.");
-        setStatus(true);
-    };
-    
-    ws.onerror = function(error) {
-        console.error("Error de conexión:", error);
-        setStatus(false);
-    };
-    
-    ws.onclose = function() {
-        console.log("Conexión finalizada.");
-        setStatus(false);
-    };
-    
+    // --- 1. MANEJO DE MENSAJES ---
     ws.onmessage = function(event) {
         let mensaje = JSON.parse(event.data);
+        console.log("Evento recibido:", mensaje.event);
+
+        // CASO A: NUEVA ASIGNACIÓN (FASE 1)
+        if (mensaje.event === "ambulancia.asignada") {
+            // La estructura aquí es { incidente: {...}, ambulancia: {...} }
+            const incidente = mensaje.data.incidente;
+            procesarIncidente(incidente, true); // true = es nuevo
+        }
         
-        if (mensaje.event === "incidente.creado") {
+        // CASO B: ACTUALIZACIÓN DE DATOS (FASE 2 - IA)
+        else if (mensaje.event === "incidente.actualizado") {
+            // La estructura aquí es directa: el objeto incidente
             const incidente = mensaje.data;
-            procesarNuevoIncidente(incidente);
+            procesarIncidente(incidente, false); // false = es actualización
         }
     };
 
-    function procesarNuevoIncidente(incidente) {
-        // 1. Manejo de Alerta Visual
-        const alertaDiv = document.getElementById("alerta-incidente");
-        const alertaTexto = document.getElementById("alerta-texto");
+    // --- 2. FUNCIÓN CENTRAL DE PROCESAMIENTO ---
+    function procesarIncidente(incidente, esNuevo) {
+        const tbody = document.getElementById("body-incidentes");
         
-        alertaTexto.innerHTML = `Se ha registrado un evento tipo <strong>${incidente.tipo}</strong> en la zona: <strong>${incidente.ubicacion}</strong>.`;
-        alertaDiv.classList.remove("d-none");
-        
-        // Auto-ocultar alerta después de 8 segundos (más tiempo para lectura profesional)
-        setTimeout(() => alertaDiv.classList.add("d-none"), 8000);
-        
-        // 2. Manejo de Audio
-        document.getElementById("sonido-alerta").play().catch(e => console.warn("Audio bloqueado por navegador"));
-        
-        // 3. Actualizar Datos
-        agregarFilaTabla(incidente);
-        
-        totalIncidentes++;
-        document.getElementById("total-incidentes").textContent = totalIncidentes.toLocaleString(); // Formato numérico
+        // Buscamos si ya existe la fila (para evitar duplicados o para actualizar)
+        const filaExistente = document.getElementById(`fila-${incidente.id}`);
+
+        if (filaExistente) {
+            // --- ESCENARIO: ACTUALIZACIÓN ---
+            console.log(`Actualizando fila #${incidente.id}...`);
+            
+            // Actualizamos celdas específicas
+            // Celda 5: Victimas
+            const celdaVictimas = filaExistente.querySelector(".col-victimas");
+            celdaVictimas.innerHTML = `<span class="fw-bold">${incidente.numero_victimas ?? 0}</span>`;
+
+            // Celda 3: Prioridad (por si cambió)
+            const celdaPrioridad = filaExistente.querySelector(".col-prioridad");
+            celdaPrioridad.innerHTML = generarBadgePrioridad(incidente.prioridad);
+
+            // Efecto visual de "Dato Actualizado"
+            filaExistente.classList.add("row-updated");
+            setTimeout(() => filaExistente.classList.remove("row-updated"), 2000);
+            
+            // Notificación discreta
+            mostrarAlertaFlotante(`Actualización: Incidente #${incidente.id}`, `Nuevos datos recibidos del operador.`);
+
+        } else {
+            // --- ESCENARIO: NUEVO INCIDENTE ---
+            console.log(`Creando nueva fila #${incidente.id}...`);
+            
+            // Quitar empty state
+            const emptyState = document.getElementById("empty-state");
+            if (emptyState) emptyState.remove();
+
+            const html = generarHTMLFila(incidente);
+            tbody.insertAdjacentHTML("afterbegin", html);
+            
+            // Contadores
+            totalIncidentes++;
+            document.getElementById("total-incidentes").textContent = totalIncidentes;
+
+            // Alerta Sonora y Visual
+            document.getElementById("sonido-alerta").play().catch(() => {});
+            mostrarAlertaFlotante(`¡NUEVO INCIDENTE!`, `Tipo: ${incidente.tipo} en ${incidente.ubicacion}`);
+        }
     }
-    
-    function agregarFilaTabla(incidente) {
-        // Remover estado vacío si existe
-        const emptyState = document.getElementById("empty-state");
-        if (emptyState) emptyState.remove();
-        
-        // Lógica de estilos por prioridad (Estilos Soft)
-        let badgeClass = 'badge-soft-secondary';
-        const p = incidente.prioridad ? incidente.prioridad.toLowerCase() : '';
-        
-        if (p === 'alta' || p === 'crítica') badgeClass = 'badge-soft-danger';
-        else if (p === 'media') badgeClass = 'badge-soft-warning';
-        else if (p === 'baja') badgeClass = 'badge-soft-info';
-        
-        // Construcción de fila HTML
-        const html = `
-            <tr class="new-row">
+
+    // --- 3. GENERADORES DE HTML ---
+    function generarHTMLFila(incidente) {
+        return `
+            <tr id="fila-${incidente.id}" class="new-row">
                 <td class="font-monospace-custom">#${incidente.id}</td>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <span class="fw-bold text-dark">${incidente.tipo}</span>
-                    </div>
-                </td>
-                <td class="text-secondary">
-                    <i class="fas fa-map-pin me-1 text-muted small"></i> ${incidente.ubicacion}
-                </td>
-                <td>
-                    <span class="badge badge-soft ${badgeClass}">
-                        ${incidente.prioridad || 'Estándar'}
-                    </span>
-                </td>
-                <td class="text-secondary">
-                    ${incidente.hospital_asignado || '<span class="text-muted fst-italic">Pendiente</span>'}
-                </td>
-                <td class="text-center">
-                    <span class="fw-bold">${incidente.numero_victimas ?? 0}</span>
-                </td>
+                <td><span class="fw-bold text-dark">${incidente.tipo}</span></td>
+                <td class="text-secondary"><i class="fas fa-map-pin me-1 text-muted small"></i> ${incidente.ubicacion}</td>
+                <td class="col-prioridad">${generarBadgePrioridad(incidente.prioridad)}</td>
+                <td class="text-secondary">${incidente.hospital_asignado || '<span class="text-muted fst-italic">Calculando...</span>'}</td>
+                <td class="text-center col-victimas"><span class="fw-bold">${incidente.numero_victimas ?? '--'}</span></td>
                 <td class="text-end">
-                    <a href="/incidentes/${incidente.id}" class="btn btn-executive btn-sm">
-                        Detalles
-                    </a>
+                    <a href="/incidentes/${incidente.id}" class="btn btn-executive btn-sm">Monitor</a>
                 </td>
             </tr>
         `;
-        
-        const tbody = document.getElementById("body-incidentes");
-        tbody.insertAdjacentHTML("afterbegin", html);
-        
-        // Limpieza de animación
-        setTimeout(() => {
-            const row = tbody.querySelector(".new-row");
-            if(row) row.classList.remove("new-row");
-        }, 2000);
     }
+
+    function generarBadgePrioridad(prioridad) {
+        let p = prioridad ? prioridad.toLowerCase() : 'media';
+        let clase = 'badge-soft-warning';
+        if (p === 'alta') clase = 'badge-soft-danger';
+        if (p === 'baja') clase = 'badge-soft-info';
+        return `<span class="badge badge-soft ${clase}">${prioridad || 'Media'}</span>`;
+    }
+
+    function mostrarAlertaFlotante(titulo, mensaje) {
+        const alertaDiv = document.getElementById("alerta-incidente");
+        document.getElementById("alerta-texto").innerHTML = `<strong>${titulo}</strong><br>${mensaje}`;
+        alertaDiv.classList.remove("d-none");
+        setTimeout(() => alertaDiv.classList.add("d-none"), 6000);
+    }
+
+    // --- EVENTOS DE CONEXIÓN (Status) ---
+    ws.onopen = () => {
+        statusDotEl.className = 'status-dot dot-success';
+        statusTextEl.innerText = 'Conectado al sistema';
+    };
+    ws.onclose = () => {
+        statusDotEl.className = 'status-dot dot-danger';
+        statusTextEl.innerText = 'Sin Señal';
+    };
 });
 </script>
+
+<style>
+    /* Animación para cuando se actualiza un dato (Flash Azul) */
+    @keyframes flashUpdate {
+        0% { background-color: #dbeafe; }
+        100% { background-color: transparent; }
+    }
+    .row-updated {
+        animation: flashUpdate 2s ease-out;
+    }
+</style>
 @endsection

@@ -7,7 +7,7 @@ use App\Http\Controllers\IncidenteController;
 use App\Http\Controllers\DroneController;
 use App\Http\Controllers\HospitalesController;
 use App\Http\Controllers\AmbulanciaController;
-
+use App\Http\Controllers\GeiminiController;
 
 
 /*
@@ -22,7 +22,9 @@ use App\Http\Controllers\AmbulanciaController;
 */
 
 Route::resource('ambulancias', AmbulanciaController::class);
-
+Route::get('/simulador', function () {
+    return view('simulation.index');
+})->name('simulador');
 
 // rutas para hospitales
 Route::get('/hospitales/index', [HospitalesController::class, 'index']);
@@ -31,6 +33,7 @@ Route::get('/hospitales/index', [HospitalesController::class, 'index']);
 Route::get('/drones/index', [DroneController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
+    Route::post('/ia/optimizar', [GeiminiController::class, 'optimizarTexto'])->name('ia.optimizar');
     Route::get('/incidentes/nuevo', [IncidenteController::class, 'create'])->name('incidentes.create');
     Route::put('/incidentes/{id}', [IncidenteController::class, 'update'])->name('incidentes.update');
     Route::post('/incidentes', [IncidenteController::class, 'store'])->name('incidentes.store');

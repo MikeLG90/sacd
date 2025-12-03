@@ -19,7 +19,6 @@ use App\Http\Controllers\HackatonController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 Route::post('/token-hackaton', [HackatonController::class, 'obtenerToken']);
 Route::post('/datos-hackaton', [HackatonController::class, 'obtenerDatos']);
 

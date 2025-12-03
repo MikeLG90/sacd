@@ -12,10 +12,15 @@ use Illuminate\Support\Facades\Log; // Importante para ver errores
 
 class IncidenteController extends Controller
 {
-    public function create()
-    {
-        return view("incidentes.create");
-    }
+public function create(Request $request)
+{
+    $lat = $request->query('lat', 18.5090); 
+    
+    $lng = $request->query('lng', -88.3020);
+
+    // Enviamos estas variables a la vista
+    return view("incidentes.create", compact('lat', 'lng'));
+}
 
 public function store(Request $request)
     {
