@@ -14216,3 +14216,238 @@
 #51 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
 #52 {main}
 "} 
+[2025-12-01 22:56:53] local.ERROR: View [sounds.alert.mp3] not found. {"userId":2,"exception":"[object] (InvalidArgumentException(code: 0): View [sounds.alert.mp3] not found. at C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php:139)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths('sounds.alert.mp...', Array)
+#1 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php(151): Illuminate\\View\\FileViewFinder->find('sounds.alert.mp...')
+#2 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(1040): Illuminate\\View\\Factory->make('sounds.alert.mp...', Array, Array)
+#3 C:\\xampp\\htdocs\\sacd\\app\\Http\\Controllers\\RoutingController.php(51): view('sounds.alert.mp...')
+#4 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\RoutingController->secondLevel(Object(Illuminate\\Http\\Request), 'sounds', 'alert.mp3')
+#5 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('secondLevel', Array)
+#6 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\RoutingController), 'secondLevel')
+#7 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#8 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#9 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#20 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#27 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#28 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#29 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#30 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#31 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#49 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1176): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#50 C:\\xampp\\htdocs\\sacd\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#51 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
+#52 {main}
+"} 
+[2025-12-01 23:15:17] local.ERROR: View [sounds.alert.mp3] not found. {"userId":2,"exception":"[object] (InvalidArgumentException(code: 0): View [sounds.alert.mp3] not found. at C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php:139)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths('sounds.alert.mp...', Array)
+#1 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php(151): Illuminate\\View\\FileViewFinder->find('sounds.alert.mp...')
+#2 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(1040): Illuminate\\View\\Factory->make('sounds.alert.mp...', Array, Array)
+#3 C:\\xampp\\htdocs\\sacd\\app\\Http\\Controllers\\RoutingController.php(51): view('sounds.alert.mp...')
+#4 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\RoutingController->secondLevel(Object(Illuminate\\Http\\Request), 'sounds', 'alert.mp3')
+#5 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('secondLevel', Array)
+#6 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\RoutingController), 'secondLevel')
+#7 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#8 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#9 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#20 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#27 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#28 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#29 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#30 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#31 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#49 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1176): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#50 C:\\xampp\\htdocs\\sacd\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#51 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
+#52 {main}
+"} 
+[2025-12-03 03:59:26] local.ERROR: SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'incidentes' already exists (Connection: mysql, SQL: create table `incidentes` (`id` bigint unsigned not null auto_increment primary key, `tipo` varchar(255) not null, `ubicacion` varchar(255) not null, `lat` decimal(10, 7) not null, `lng` decimal(10, 7) not null, `hospital_asignado` varchar(255) null, `hora` datetime not null, `prioridad` varchar(255) not null default 'media', `numero_victimas` int null, `gravedad_heridos` varchar(255) null, `observaciones` text null, `descripcion` text null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'incidentes' already exists (Connection: mysql, SQL: create table `incidentes` (`id` bigint unsigned not null auto_increment primary key, `tipo` varchar(255) not null, `ubicacion` varchar(255) not null, `lat` decimal(10, 7) not null, `lng` decimal(10, 7) not null, `hospital_asignado` varchar(255) null, `hora` datetime not null, `prioridad` varchar(255) not null default 'media', `numero_victimas` int null, `gravedad_heridos` varchar(255) null, `observaciones` text null, `descripcion` text null, `created_at` timestamp null, `updated_at` timestamp null) default character set utf8mb4 collate 'utf8mb4_unicode_ci') at C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:813)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(767): Illuminate\\Database\\Connection->runQueryCallback('create table `i...', Array, Object(Closure))
+#1 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run('create table `i...', Array, Object(Closure))
+#2 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `i...')
+#3 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(357): Illuminate\\Database\\Schema\\Builder->create('incidentes', Object(Closure))
+#6 C:\\xampp\\htdocs\\sacd\\database\\migrations\\2025_12_03_035813_incidentes_null.php(15): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#7 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(476): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(402): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(411): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(212): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(739): Illuminate\\Console\\View\\Components\\Task->render('2025_12_03_0358...', Object(Closure))
+#13 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(212): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_12_03_0358...', Object(Closure))
+#14 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(179): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\xampp\\\\htdocs...', 2, false)
+#15 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(122): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(116): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#22 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#23 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#24 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#25 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#26 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#29 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#30 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1191): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\xampp\\htdocs\\sacd\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#34 {main}
+
+[previous exception] [object] (PDOException(code: 42S01): SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'incidentes' already exists at C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(800): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('create table `i...', Array)
+#2 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(767): Illuminate\\Database\\Connection->runQueryCallback('create table `i...', Array, Object(Closure))
+#3 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run('create table `i...', Array, Object(Closure))
+#4 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(109): Illuminate\\Database\\Connection->statement('create table `i...')
+#5 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(418): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(357): Illuminate\\Database\\Schema\\Builder->create('incidentes', Object(Closure))
+#8 C:\\xampp\\htdocs\\sacd\\database\\migrations\\2025_12_03_035813_incidentes_null.php(15): Illuminate\\Support\\Facades\\Facade::__callStatic('create', Array)
+#9 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(476): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(402): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(411): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(212): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(739): Illuminate\\Console\\View\\Components\\Task->render('2025_12_03_0358...', Object(Closure))
+#15 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(212): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_12_03_0358...', Object(Closure))
+#16 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(179): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\xampp\\\\htdocs...', 2, false)
+#17 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(122): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(116): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(616): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(109): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(88): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#24 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#25 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#26 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(662): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#27 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#28 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Command\\Command.php(279): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#30 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Application.php(1049): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#31 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Application.php(318): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\MigrateCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#32 C:\\xampp\\htdocs\\sacd\\vendor\\symfony\\console\\Application.php(169): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#33 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(196): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#34 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1191): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#35 C:\\xampp\\htdocs\\sacd\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#36 {main}
+"} 
+[2025-12-03 04:26:50] local.INFO: Iniciando asignación para Incidente ID: 23  
+[2025-12-03 04:26:50] local.WARNING: No hay ambulancias disponibles para el incidente 23  
+[2025-12-03 04:32:06] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-03 04:32:06] local.INFO: Datos recibidos: {"lat":"18.509000","lng":"-88.302000","ubicacion":"Lat: 18.509000, Lng: -88.302000","tipo":"Choque","prioridad":"alta","hora":"2025-12-03T04:31","hospital_asignado":"Hospital General Chetumal"} 
+[2025-12-03 04:32:06] local.INFO: Incidente creado ID: 25  
+[2025-12-03 04:32:06] local.WARNING: No se encontró hospital exacto: Hospital General Chetumal. Usando el primero disponible.  
+[2025-12-03 04:32:06] local.INFO: Buscando ambulancia en hospital: Hospital General de Cancún "Jesús Kumate Rodríguez" (SESA)  
+[2025-12-03 04:32:06] local.WARNING: No hay ambulancias en el hospital local. Buscando globalmente...  
+[2025-12-03 04:32:06] local.INFO: ASIGNACIÓN ÉXITOSA: Ambulancia ID 2  
+[2025-12-03 04:32:08] local.INFO: Respuesta WS Node: 200  
+[2025-12-03 04:36:58] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-03 04:36:58] local.INFO: Datos recibidos: {"lat":"18.509000","lng":"-88.302000","ubicacion":"Lat: 18.509000, Lng: -88.302000","tipo":"Choque","prioridad":"alta","hora":"2025-12-03T04:36","hospital_asignado":"Hospital General de Chetumal (SESA)"} 
+[2025-12-03 04:36:58] local.INFO: Incidente creado ID: 26  
+[2025-12-03 04:36:58] local.INFO: Buscando ambulancia en hospital: Hospital General de Chetumal (SESA)  
+[2025-12-03 04:36:58] local.INFO: ASIGNACIÓN ÉXITOSA: Ambulancia ID 2  
+[2025-12-03 04:36:58] local.INFO: Respuesta WS Node: 200  
+[2025-12-03 04:53:54] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-03 04:53:54] local.INFO: Datos recibidos: {"lat":"18.509000","lng":"-88.302000","ubicacion":"Lat: 18.509000, Lng: -88.302000","tipo":"Choque","prioridad":"alta","hora":"2025-12-03T04:53","hospital_asignado":"Hospital General de Chetumal (SESA)"} 
+[2025-12-03 04:53:54] local.INFO: Incidente creado ID: 27  
+[2025-12-03 04:53:54] local.INFO: Buscando ambulancia en hospital: Hospital General de Chetumal (SESA)  
+[2025-12-03 04:53:54] local.INFO: ASIGNACIÓN ÉXITOSA: Ambulancia ID 2  
+[2025-12-03 04:53:55] local.INFO: Respuesta WS Node: 200  
+[2025-12-03 04:54:15] local.INFO: Actualización de incidente enviada al WS. ID: 27  
+[2025-12-03 04:58:01] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-03 04:58:01] local.INFO: Datos recibidos: {"lat":"18.509000","lng":"-88.302000","ubicacion":"Lat: 18.509000, Lng: -88.302000","tipo":"Choque","prioridad":"alta","hora":"2025-12-03T04:57","hospital_asignado":"Hospital General de Chetumal (SESA)"} 
+[2025-12-03 04:58:01] local.INFO: Incidente creado ID: 28  
+[2025-12-03 04:58:01] local.INFO: Buscando ambulancia en hospital: Hospital General de Chetumal (SESA)  
+[2025-12-03 04:58:01] local.WARNING: No hay ambulancias en el hospital local. Buscando globalmente...  
+[2025-12-03 04:58:01] local.ERROR: FALLO DE ASIGNACIÓN: No hay ambulancias disponibles en todo el sistema.  
+[2025-12-03 04:58:01] local.INFO: Respuesta WS Node: 200  
+[2025-12-03 04:58:12] local.INFO: Update enviado al WS. Datos completos del incidente ID: 28  
+[2025-12-03 04:59:29] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-03 04:59:29] local.INFO: Datos recibidos: {"lat":"18.509000","lng":"-88.302000","ubicacion":"Lat: 18.509000, Lng: -88.302000","tipo":"Choque","prioridad":"alta","hora":"2025-12-03T04:59","hospital_asignado":"Hospital General de Chetumal (SESA)"} 
+[2025-12-03 04:59:29] local.INFO: Incidente creado ID: 29  
+[2025-12-03 04:59:29] local.INFO: Buscando ambulancia en hospital: Hospital General de Chetumal (SESA)  
+[2025-12-03 04:59:29] local.INFO: ASIGNACIÓN ÉXITOSA: Ambulancia ID 2  
+[2025-12-03 04:59:29] local.INFO: Respuesta WS Node: 200  
+[2025-12-03 04:59:41] local.INFO: Update enviado al WS. Datos completos del incidente ID: 29  
+[2025-12-03 05:02:53] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-03 05:02:53] local.INFO: Datos recibidos: {"lat":"18.509000","lng":"-88.302000","ubicacion":"Lat: 18.509000, Lng: -88.302000","tipo":"Choque","prioridad":"alta","hora":"2025-12-03T05:02","hospital_asignado":"Hospital General de Chetumal (SESA)"} 
+[2025-12-03 05:02:53] local.INFO: Incidente creado ID: 30  
+[2025-12-03 05:02:53] local.INFO: Buscando ambulancia en hospital: Hospital General de Chetumal (SESA)  
+[2025-12-03 05:02:53] local.INFO: ASIGNACIÓN ÉXITOSA: Ambulancia ID 2  
+[2025-12-03 05:02:54] local.INFO: Respuesta WS Node: 200  
+[2025-12-03 05:03:07] local.INFO: Update enviado al WS. Datos completos del incidente ID: 30  

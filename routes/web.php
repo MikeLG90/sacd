@@ -32,8 +32,9 @@ Route::get('/drones/index', [DroneController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/incidentes/nuevo', [IncidenteController::class, 'create'])->name('incidentes.create');
+    Route::put('/incidentes/{id}', [IncidenteController::class, 'update'])->name('incidentes.update');
     Route::post('/incidentes', [IncidenteController::class, 'store'])->name('incidentes.store');
-    Route::get('/incidentes/{id}', [IncidenteController::class, 'show'])->name('incidentes.show');
+    Route::get('/incidentes-ver/{id}', [IncidenteController::class, 'show'])->name('incidentes.show');
 });
 
 Route::get('/reportes/incidentes', [ReporteController::class, 'index'])->name('reportes.incidentes');
