@@ -69,7 +69,7 @@ class AsignarAmbulanciaJob implements ShouldQueue
 
             // 5. Enviar al WebSocket (Node.js)
             try {
-                Http::timeout(2)->post("http://localhost:3000/broadcast/asignacion-ambulancia", [
+                Http::timeout(2)->post("https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/asignacion-ambulancia", [
                     "event" => "ambulancia.asignada",
                     "data" => [
                         "incidente" => $this->incidente,

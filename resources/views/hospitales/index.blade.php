@@ -248,7 +248,7 @@
 @section('script')
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const wsUrl = "ws://localhost:8080";
+    const wsUrl = "wss://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net";
     const statusEl = document.getElementById("connection-status");
     const statusTextEl = document.getElementById("status-text");
     const statusDotEl = statusEl.querySelector(".status-dot");

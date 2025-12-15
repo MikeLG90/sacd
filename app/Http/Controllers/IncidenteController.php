@@ -73,28 +73,23 @@ public function store(Request $request)
                 ->first();
         }
 
-        // Intento B: Si no hay en ese hospital, buscar CUALQUIER ambulancia disponible (Auxilio Global)
         if (!$ambulancia) {
             Log::warning("No hay ambulancias en el hospital local. Buscando globalmente...");
             $ambulancia = Ambulancia::where('estado', 'disponible')->first();
         }
 
-        // 5. Asignación y Actualización de BD
         $asignado = false;
         
         if ($ambulancia && $hospital) {
-            // Crear relación
             IncidenteAmbulancia::create([
                 'incidente_id' => $incidente->id,
                 'ambulancia_id' => $ambulancia->id,
-                'hospital_id' => $hospital->id, // Usar ID del hospital asignado
+                'hospital_id' => $hospital->id,
                 'estado' => 'asignado',
             ]);
 
-            // Actualizar estados
             $ambulancia->update(['estado' => 'en_ruta']);
             
-            // Actualizar el incidente con el nombre real del hospital de la BD
             $incidente->update(['hospital_asignado' => $hospital->nombre]);
             
             $asignado = true;
@@ -103,24 +98,21 @@ public function store(Request $request)
             Log::error("FALLO DE ASIGNACIÓN: No hay ambulancias disponibles en todo el sistema.");
         }
 
-        // 6. WebSocket (Envío síncrono con Timeout)
         try {
             $payload = [
                 "event" => $asignado ? "ambulancia.asignada" : "incidente.pendiente",
                 "data" => [
                     "incidente" => $incidente,
-                    "ambulancia" => $ambulancia, // Será null si no se asignó
+                    "ambulancia" => $ambulancia, 
                     "mensaje" => $asignado ? "URGENTE: Salida Inmediata" : "ALERTA: Incidente registrado SIN unidad disponible"
                 ]
             ];
 
-            // Usamos timeout de 2 segundos para no colgar PHP si Node no responde
-            $response = Http::timeout(2)->post("http://localhost:3000/broadcast/asignacion-ambulancia", $payload);
+            $response = Http::timeout(2)->post("https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/asignacion-ambulancia", $payload);
             
             Log::info("Respuesta WS Node: " . $response->status());
 
         } catch (\Exception $e) {
-            // Capturamos error de conexión pero NO detenemos el flujo
             Log::error("ERROR WEBSOCKET: No se pudo conectar con Node.js. " . $e->getMessage());
         }
 
@@ -158,10 +150,9 @@ public function update(Request $request, $id)
         // 4. IMPORTANTE: Refrescar el modelo para asegurar que tenemos todos los datos actualizados
         $incidente->refresh(); 
 
-        // 5. ENVIAR TODO EL OBJETO AL WEBSOCKET
         try {
              // Aquí enviamos $incidente->toArray(), que contiene ID, Lat, Lng, Descripción nueva, Víctimas, etc.
-             Http::timeout(1)->post("http://localhost:3000/broadcast/incidente-actualizado", $incidente->toArray());
+             Http::timeout(1)->post("https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/incidente-actualizado", $incidente->toArray());
              
              \Log::info("Update enviado al WS. Datos completos del incidente ID: " . $id);
 
