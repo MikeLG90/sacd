@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 
 class GeiminiController extends Controller
 {
+    
 public function optimizarTexto(Request $request)
 {
     $request->validate([

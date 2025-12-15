@@ -15844,3 +15844,74 @@
 [2025-12-03 07:28:27] local.ERROR: FALLO DE ASIGNACIÓN: No hay ambulancias disponibles en todo el sistema.  
 [2025-12-03 07:28:27] local.INFO: Respuesta WS Node: 200  
 [2025-12-03 07:29:22] local.INFO: Update enviado al WS. Datos completos del incidente ID: 36  
+[2025-12-15 04:07:36] local.INFO: --- INICIANDO DESPACHO ---  
+[2025-12-15 04:07:36] local.INFO: Datos recibidos: {"lat":"18.504243","lng":"-88.295666","ubicacion":"Lat: 18.504243, Lng: -88.295666","tipo":"Choque","prioridad":"alta","hora":"2025-12-15T04:06","hospital_asignado":"Hospital General de Chetumal (SESA)"} 
+[2025-12-15 04:07:36] local.INFO: Incidente creado ID: 37  
+[2025-12-15 04:07:36] local.INFO: Buscando ambulancia en hospital: Hospital General de Chetumal (SESA)  
+[2025-12-15 04:07:36] local.WARNING: No hay ambulancias en el hospital local. Buscando globalmente...  
+[2025-12-15 04:07:36] local.ERROR: FALLO DE ASIGNACIÓN: No hay ambulancias disponibles en todo el sistema.  
+[2025-12-15 04:07:37] local.INFO: Respuesta WS Node: 200  
+[2025-12-15 04:08:38] local.ERROR: View [.well-known.appspecific.com.chrome.devtools.json] not found. {"userId":1,"exception":"[object] (InvalidArgumentException(code: 0): View [.well-known.appspecific.com.chrome.devtools.json] not found. at C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php:139)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\FileViewFinder.php(79): Illuminate\\View\\FileViewFinder->findInPaths('.well-known.app...', Array)
+#1 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Factory.php(151): Illuminate\\View\\FileViewFinder->find('.well-known.app...')
+#2 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(1040): Illuminate\\View\\Factory->make('.well-known.app...', Array, Array)
+#3 C:\\xampp\\htdocs\\sacd\\app\\Http\\Controllers\\RoutingController.php(59): view('.well-known.app...')
+#4 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php(54): App\\Http\\Controllers\\RoutingController->thirdLevel(Object(Illuminate\\Http\\Request), '.well-known', 'appspecific', 'com.chrome.devt...')
+#5 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\ControllerDispatcher.php(43): Illuminate\\Routing\\Controller->callAction('thirdLevel', Array)
+#6 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(260): Illuminate\\Routing\\ControllerDispatcher->dispatch(Object(Illuminate\\Routing\\Route), Object(App\\Http\\Controllers\\RoutingController), 'thirdLevel')
+#7 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php(206): Illuminate\\Routing\\Route->runController()
+#8 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(806): Illuminate\\Routing\\Route->run()
+#9 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#10 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(50): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#11 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#12 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Auth\\Middleware\\Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#13 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Auth\\Middleware\\Authenticate->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#14 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#20 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#21 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#22 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(805): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#27 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(784): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#28 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(748): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#29 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(737): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#30 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(200): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#31 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(144): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#32 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#33 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#34 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#35 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#36 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#37 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#39 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#40 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#41 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(57): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(183): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(119): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(175): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#48 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(144): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#49 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1176): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#50 C:\\xampp\\htdocs\\sacd\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#51 C:\\xampp\\htdocs\\sacd\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(16): require_once('C:\\\\xampp\\\\htdocs...')
+#52 {main}
+"} 
+[2025-12-15 04:16:00] local.ERROR: OpenAI HTTP Error {"status":400,"body":"{
+  \"error\": {
+    \"message\": \"Unsupported parameter: 'response_format'. In the Responses API, this parameter has moved to 'text.format'. Try again with the new parameter. See the API documentation for more information: https://platform.openai.com/docs/api-reference/responses/create.\",
+    \"type\": \"invalid_request_error\",
+    \"param\": null,
+    \"code\": \"unsupported_parameter\"
+  }
+}"} 
