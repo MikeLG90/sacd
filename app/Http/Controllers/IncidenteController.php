@@ -8,163 +8,163 @@ use App\Models\Hospital;
 use App\Models\Ambulancia;
 use App\Models\IncidenteAmbulancia;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log; // Importante para ver errores
+use Illuminate\Support\Facades\Log;
 
 class IncidenteController extends Controller
 {
-public function create(Request $request)
-{
-    $lat = $request->query('lat', 18.5090); 
-    
-    $lng = $request->query('lng', -88.3020);
-
-    // Enviamos estas variables a la vista
-    return view("incidentes.create", compact('lat', 'lng'));
-}
-
-public function store(Request $request)
+    public function create(Request $request)
     {
-        // 1. Log inicial para depurar
-        Log::info("--- INICIANDO DESPACHO ---");
-        Log::info("Datos recibidos:", $request->all());
+        $lat = $request->query('lat', 18.5090);
+        $lng = $request->query('lng', -88.3020);
 
-        // Validación
-        $data = $request->validate([
-            "tipo" => "required|string",
-            "lat" => "required|numeric",
-            "lng" => "required|numeric",
-            "ubicacion" => "required|string",
-            "hora" => "required|date",
-            "prioridad" => "nullable|string",
-            "hospital_asignado" => "nullable|string", 
-            "descripcion" => "nullable|string",
-            "numero_victimas" => "nullable|integer",
-            "gravedad_heridos" => "nullable|string",
-            "observaciones" => "nullable|string",
-        ]);
+        return view("incidentes.create", compact('lat', 'lng'));
+    }
 
-        // 2. Crear Incidente
-        $incidente = Incidente::create($data);
-        Log::info("Incidente creado ID: " . $incidente->id);
+    public function store(Request $request)
+    {
+        Log::info("INCIDENTE STORE", $request->all());
 
-        // 3. Lógica de Búsqueda de Hospital (Flexible con LIKE)
-        $hospitalNombre = $request->hospital_asignado;
-        $hospital = null;
-
-        if ($hospitalNombre) {
-            // Buscamos coincidencias parciales (Ej: "Chetumal" encuentra "Hospital General de Chetumal")
-            $hospital = Hospital::where('nombre', 'LIKE', "%{$hospitalNombre}%")->first();
-        }
-
-        // Fallback: Si no se encuentra o viene nulo, usar el primero disponible
-        if (!$hospital) {
-            Log::warning("No se encontró hospital exacto para: '$hospitalNombre'. Usando el primero disponible.");
-            $hospital = Hospital::first(); 
-        }
-
-        // 4. Lógica de Búsqueda de Ambulancia (En Cascada)
-        $ambulancia = null;
-
-        // Intento A: Buscar en el hospital detectado
-        if ($hospital) {
-            Log::info("Buscando ambulancia en hospital: " . $hospital->nombre);
-            $ambulancia = Ambulancia::where('hospital_id', $hospital->id)
-                ->where('estado', 'disponible') 
-                ->first();
-        }
-
-        if (!$ambulancia) {
-            Log::warning("No hay ambulancias en el hospital local. Buscando globalmente...");
-            $ambulancia = Ambulancia::where('estado', 'disponible')->first();
-        }
-
-        $asignado = false;
-        
-        if ($ambulancia && $hospital) {
-            IncidenteAmbulancia::create([
-                'incidente_id' => $incidente->id,
-                'ambulancia_id' => $ambulancia->id,
-                'hospital_id' => $hospital->id,
-                'estado' => 'asignado',
+        try {
+            $data = $request->validate([
+                "tipo" => "required|string",
+                "lat" => "required|numeric",
+                "lng" => "required|numeric",
+                "ubicacion" => "required|string",
+                "hora" => "required|date",
+                "prioridad" => "nullable|string",
+                "hospital_asignado" => "nullable|string",
+                "descripcion" => "nullable|string",
+                "numero_victimas" => "nullable|integer",
+                "gravedad_heridos" => "nullable|string",
+                "observaciones" => "nullable|string",
             ]);
-
-            $ambulancia->update(['estado' => 'en_ruta']);
-            
-            $incidente->update(['hospital_asignado' => $hospital->nombre]);
-            
-            $asignado = true;
-            Log::info("ASIGNACIÓN ÉXITOSA: Ambulancia ID " . $ambulancia->id);
-        } else {
-            Log::error("FALLO DE ASIGNACIÓN: No hay ambulancias disponibles en todo el sistema.");
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error de validación',
+                'errors' => $e->errors()
+            ], 422);
         }
 
         try {
-            $payload = [
-                "event" => $asignado ? "ambulancia.asignada" : "incidente.pendiente",
-                "data" => [
-                    "incidente" => $incidente,
-                    "ambulancia" => $ambulancia, 
-                    "mensaje" => $asignado ? "URGENTE: Salida Inmediata" : "ALERTA: Incidente registrado SIN unidad disponible"
-                ]
-            ];
+            $incidente = Incidente::create($data);
 
-            $response = Http::timeout(2)->post("https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/asignacion-ambulancia", $payload);
-            
-            Log::info("Respuesta WS Node: " . $response->status());
+            $hospital = null;
+            if ($request->hospital_asignado) {
+                $hospital = Hospital::where('nombre', 'LIKE', "%{$request->hospital_asignado}%")->first();
+            }
 
-        } catch (\Exception $e) {
-            Log::error("ERROR WEBSOCKET: No se pudo conectar con Node.js. " . $e->getMessage());
-        }
+            if (!$hospital) {
+                $hospital = Hospital::first();
+            }
 
-        // 7. Respuesta al Frontend
-        if ($request->ajax()) {
+            $ambulancia = null;
+            if ($hospital) {
+                $ambulancia = Ambulancia::where('hospital_id', $hospital->id)
+                    ->where('estado', 'disponible')
+                    ->first();
+            }
+
+            if (!$ambulancia) {
+                $ambulancia = Ambulancia::where('estado', 'disponible')->first();
+            }
+
+            $asignado = false;
+
+            if ($ambulancia && $hospital) {
+                IncidenteAmbulancia::create([
+                    'incidente_id' => $incidente->id,
+                    'ambulancia_id' => $ambulancia->id,
+                    'hospital_id' => $hospital->id,
+                    'estado' => 'asignado',
+                ]);
+
+                $ambulancia->update(['estado' => 'en_ruta']);
+                $incidente->update(['hospital_asignado' => $hospital->nombre]);
+                $asignado = true;
+            }
+
+            try {
+                $payload = [
+                    "event" => $asignado ? "ambulancia.asignada" : "incidente.pendiente",
+                    "data" => [
+                        "incidente" => $incidente,
+                        "ambulancia" => $ambulancia,
+                        "mensaje" => $asignado
+                            ? "URGENTE: Salida Inmediata"
+                            : "ALERTA: Incidente registrado SIN unidad disponible"
+                    ]
+                ];
+
+                Http::timeout(2)->post(
+                    "https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/asignacion-ambulancia",
+                    $payload
+                );
+            } catch (\Throwable $e) {
+                Log::error("WS ERROR", ['error' => $e->getMessage()]);
+            }
+
             return response()->json([
                 'success' => true,
-                'message' => $asignado ? 'Ambulancia asignada correctamente.' : 'Incidente registrado. NO SE ENCONTRARON AMBULANCIAS.',
+                'message' => $asignado
+                    ? 'Ambulancia asignada correctamente.'
+                    : 'Incidente registrado, sin ambulancias disponibles.',
                 'id' => $incidente->id
             ]);
-        }
 
-        // Redirección estándar
-        return redirect("/incidentes/reportes");
+        } catch (\Throwable $e) {
+            Log::error("STORE ERROR", ['error' => $e->getMessage()]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Error interno del servidor'
+            ], 500);
+        }
     }
 
-// Método para actualizar los detalles (Fase 2)
-public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
-        // 1. Buscar
-        $incidente = Incidente::findOrFail($id);
-
-        // 2. Validar
-        $data = $request->validate([
-            'descripcion' => 'nullable|string',
-            'numero_victimas' => 'nullable|integer',
-            'gravedad_heridos' => 'nullable|string',
-            'observaciones' => 'nullable|string',
-            'prioridad' => 'nullable|string',
-        ]);
-
-        // 3. Actualizar en BD
-        $incidente->update($data);
-
-        // 4. IMPORTANTE: Refrescar el modelo para asegurar que tenemos todos los datos actualizados
-        $incidente->refresh(); 
-
         try {
-             // Aquí enviamos $incidente->toArray(), que contiene ID, Lat, Lng, Descripción nueva, Víctimas, etc.
-             Http::timeout(1)->post("https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/incidente-actualizado", $incidente->toArray());
-             
-             \Log::info("Update enviado al WS. Datos completos del incidente ID: " . $id);
+            $incidente = Incidente::findOrFail($id);
 
-        } catch (\Exception $e) {
-             \Log::error("Error enviando actualización WS: " . $e->getMessage());
+            $data = $request->validate([
+                'descripcion' => 'nullable|string',
+                'numero_victimas' => 'nullable|integer',
+                'gravedad_heridos' => 'nullable|string',
+                'observaciones' => 'nullable|string',
+                'prioridad' => 'nullable|string',
+            ]);
+
+            $incidente->update($data);
+            $incidente->refresh();
+
+            try {
+                Http::timeout(1)->post(
+                    "https://rutasws-f6hhc6bmekbbekfe.mexicocentral-01.azurewebsites.net/broadcast/incidente-actualizado",
+                    $incidente->toArray()
+                );
+            } catch (\Throwable $e) {
+                Log::error("WS UPDATE ERROR", ['error' => $e->getMessage()]);
+            }
+
+            return response()->json([
+                'success' => true,
+                'id' => $incidente->id
+            ]);
+
+        } catch (\Throwable $e) {
+            Log::error("UPDATE ERROR", ['error' => $e->getMessage()]);
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al actualizar incidente'
+            ], 500);
         }
-
-        return redirect()->back()->with('success', 'Informe actualizado y enviado a la unidad.');
     }
+
     public function show($id)
     {
         $incidente = Incidente::findOrFail($id);
-        return view("incidentes.show", compact("incidente")); // Asegúrate que la vista exista
+        return view("incidentes.show", compact("incidente"));
     }
 }

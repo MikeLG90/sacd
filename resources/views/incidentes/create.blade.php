@@ -15,7 +15,13 @@
 
     /* --- Estilos Globales --- */
     body {
-        background-color: #f8fafc;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    .main-container {
+        max-width: 1600px;
+        margin: 0 auto;
     }
 
     /* --- Headers Personalizados --- */
@@ -69,15 +75,16 @@
         overflow: hidden;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         background: white;
+        margin-bottom: 1.5rem;
     }
 
     .card-custom:hover {
         box-shadow: var(--shadow-lg);
-        transform: translateY(-4px);
+        transform: translateY(-2px);
     }
 
     .card-body {
-        padding: 1.5rem;
+        padding: 1.75rem;
     }
 
     /* --- Video Container --- */
@@ -130,8 +137,8 @@
     /* --- Form Styles --- */
     .form-control, .form-control-sm {
         border: 2px solid #e5e7eb; 
-        border-radius: 0.5rem; 
-        padding: 0.625rem 0.875rem; 
+        border-radius: 0.625rem; 
+        padding: 0.75rem 1rem; 
         transition: all 0.2s ease;
         font-size: 0.9375rem;
     }
@@ -142,60 +149,66 @@
         outline: none; 
     }
 
+    .form-select {
+        border: 2px solid #e5e7eb;
+        border-radius: 0.625rem;
+        padding: 0.75rem 1rem;
+        transition: all 0.2s ease;
+        font-size: 0.9375rem;
+    }
+
+    .form-select:focus {
+        border-color: #dc2626;
+        box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+        outline: none;
+    }
+
     label {
         font-weight: 600;
         color: #374151;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.625rem;
         font-size: 0.875rem;
         display: flex;
         align-items: center;
         gap: 0.5rem;
     }
 
-    /* Added styles for label icons */
     .label-icon {
         width: 18px;
         height: 18px;
         flex-shrink: 0;
-    }
-
-    /* Added styles for priority icons */
-    .priority-icon {
-        width: 16px;
-        height: 16px;
-        margin-right: 0.375rem;
-        vertical-align: middle;
+        color: #6b7280;
     }
 
     /* --- Section Headers --- */
     .section-header {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 1.25rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 2px solid #f3f4f6;
+        gap: 0.875rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.875rem;
+        border-bottom: 3px solid #f3f4f6;
     }
 
     .section-header h5 {
         margin: 0;
         color: #1f2937;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 1.05rem;
         letter-spacing: 0.025em;
     }
 
     .section-number {
         background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
         color: white;
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: 800;
-        font-size: 0.875rem;
+        font-size: 0.95rem;
         box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
     }
 
@@ -208,7 +221,7 @@
         letter-spacing: 0.05em;
         box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4); 
         border: none; 
-        padding: 1.125rem 1.5rem; 
+        padding: 1.25rem 1.75rem; 
         width: 100%; 
         margin-bottom: 1.5rem;
         display: flex; 
@@ -216,8 +229,8 @@
         justify-content: center; 
         gap: 0.75rem; 
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border-radius: 0.75rem;
-        font-size: 0.9375rem;
+        border-radius: 0.875rem;
+        font-size: 1rem;
         position: relative;
         overflow: hidden;
     }
@@ -247,6 +260,7 @@
         background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
         cursor: not-allowed; 
         transform: none; 
+        box-shadow: none;
     }
 
     .btn-despacho.enviado { 
@@ -261,15 +275,15 @@
         100% { transform: scale(1); }
     }
 
-    /* --- Botón IA Mejorado con Logo ChatGPT --- */
+    /* --- Botón IA --- */
     .btn-ai {
         font-size: 0.8125rem; 
         font-weight: 700; 
         color: white;
         border: none;
         background: linear-gradient(135deg, var(--ai-gradient-start) 0%, var(--ai-gradient-end) 100%);
-        padding: 0.5rem 1rem; 
-        border-radius: 0.5rem; 
+        padding: 0.625rem 1.125rem; 
+        border-radius: 0.625rem; 
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         display: inline-flex;
         align-items: center;
@@ -317,8 +331,8 @@
     .info-badge { 
         background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
         color: #1e40af;
-        padding: 0.875rem 1.125rem;
-        border-radius: 0.75rem;
+        padding: 1rem 1.25rem;
+        border-radius: 0.875rem;
         font-size: 0.875rem; 
         display: flex;
         align-items: center;
@@ -336,8 +350,8 @@
     .alert-custom {
         background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
         border: 2px solid #fbbf24;
-        border-radius: 0.75rem;
-        padding: 0.875rem 1.125rem;
+        border-radius: 0.875rem;
+        padding: 1rem 1.25rem;
         font-size: 0.875rem;
         color: #92400e;
         display: flex;
@@ -348,11 +362,11 @@
 
     /* --- Mapa --- */
     #mapa-dron { 
-        border-radius: 0.75rem; 
-        height: 320px; 
+        border-radius: 0.875rem; 
+        height: 350px; 
         margin-bottom: 1rem;
         box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
-        border: 2px solid #e5e7eb;
+        border: 3px solid #e5e7eb;
     }
 
     /* --- Hospital Field --- */
@@ -367,10 +381,10 @@
     .btn-submit-final {
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         border: none;
-        padding: 1rem 1.5rem;
+        padding: 1.25rem 1.75rem;
         font-weight: 700;
         font-size: 1rem;
-        border-radius: 0.75rem;
+        border-radius: 0.875rem;
         box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         text-transform: uppercase;
@@ -386,35 +400,108 @@
     /* --- Divider --- */
     .custom-divider {
         border: none;
-        height: 2px;
+        height: 3px;
         background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
         margin: 2rem 0;
     }
 
-    /* --- Row Spacing --- */
-    .form-row-spacing {
-        margin-bottom: 1rem;
+    /* --- Priority Badge --- */
+    .priority-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+    }
+
+    .priority-badge.alta {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .priority-badge.media {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .priority-badge.baja {
+        background: #d1fae5;
+        color: #065f46;
+    }
+
+    /* --- Stats Card --- */
+    .stats-mini {
+        background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        border-radius: 0.75rem;
+        padding: 1rem;
+        text-align: center;
+        border: 2px solid #e5e7eb;
+    }
+
+    .stats-mini-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #1f2937;
+        display: block;
+    }
+
+    .stats-mini-label {
+        font-size: 0.75rem;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 600;
     }
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
         .card-body {
-            padding: 1rem;
+            padding: 1.25rem;
         }
         
         .btn-despacho {
             font-size: 0.875rem;
-            padding: 1rem;
+            padding: 1rem 1.25rem;
         }
+
+        #mapa-dron {
+            height: 300px;
+        }
+    }
+
+    /* SweetAlert2 Custom Styles */
+    .swal2-popup {
+        border-radius: 1rem !important;
+        padding: 2rem !important;
+    }
+
+    .swal2-title {
+        font-weight: 700 !important;
+        font-size: 1.5rem !important;
+    }
+
+    .swal2-styled.swal2-confirm {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+        border-radius: 0.625rem !important;
+        padding: 0.75rem 2rem !important;
+        font-weight: 700 !important;
+    }
+
+    .swal2-styled.swal2-cancel {
+        background: #6b7280 !important;
+        border-radius: 0.625rem !important;
+        padding: 0.75rem 2rem !important;
     }
 </style>
 
-<div class="container-fluid py-4">
+<div class="container-fluid py-4 main-container">
     <div class="row g-4">
         <!-- Columna Izquierda: Video y Mapa -->
         <div class="col-lg-8">
             <!-- Card Video -->
-            <div class="card card-custom mb-4">
+            <div class="card card-custom">
                 <div class="card-header-custom">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="23 7 16 12 23 17 23 7"/>
@@ -428,7 +515,29 @@
                             <span class="pulse-dot"></span>
                             EN VIVO
                         </div>
-                        <video id="video-dron" controls autoplay muted style="width:100%; height:280px; display:block;"></video>
+                        <video id="video-dron" controls autoplay muted style="width:100%; height:300px; display:block;"></video>
+                    </div>
+
+                    <!-- Added stats cards below video -->
+                    <div class="row g-3 mt-3">
+                        <div class="col-4">
+                            <div class="stats-mini">
+                                <span class="stats-mini-value" id="stats-lat">--</span>
+                                <span class="stats-mini-label">Latitud</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stats-mini">
+                                <span class="stats-mini-value" id="stats-lng">--</span>
+                                <span class="stats-mini-label">Longitud</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stats-mini">
+                                <span class="stats-mini-value" id="stats-time">--:--</span>
+                                <span class="stats-mini-label">Hora Actual</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -449,7 +558,7 @@
                             <line x1="12" y1="16" x2="12" y2="12"/>
                             <line x1="12" y1="8" x2="12.01" y2="8"/>
                         </svg>
-                        <span><strong>Instrucción:</strong> Arrastra el marcador en el mapa para fijar el punto exacto del incidente y asignar el hospital más cercano</span>
+                        <span><strong>Instrucción:</strong> Arrastra el marcador rojo en el mapa para fijar el punto exacto del incidente. El sistema asignará automáticamente el hospital más cercano.</span>
                     </div>
                     <div id="mapa-dron"></div>
                 </div>
@@ -480,32 +589,26 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Tipo de Incidente</label>
+                            <label class="form-label">
+                                <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                </svg>
+                                Tipo de Incidente
+                            </label>
                             <input type="text" name="tipo" id="tipo" class="form-control" required placeholder="Ej: Atropello, Choque, Accidente...">
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">Prioridad Inicial</label>
-                            <!-- Replaced emoji icons with SVG icons in select options -->
-                            <select name="prioridad" id="prioridad" class="form-control">
-                                <option value="alta" selected>
-                                    <svg class="priority-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10" fill="#dc2626"/>
-                                    </svg>
-                                    Alta
-                                </option>
-                                <option value="media">
-                                    <svg class="priority-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10" fill="#eab308"/>
-                                    </svg>
-                                    Media
-                                </option>
-                                <option value="baja">
-                                    <svg class="priority-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10" fill="#16a34a"/>
-                                    </svg>
-                                    Baja
-                                </option>
+                            <label class="form-label">
+                                <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                                Prioridad Inicial
+                            </label>
+                            <select name="prioridad" id="prioridad" class="form-select">
+                                <option value="alta" selected>🔴 Alta - Emergencia Crítica</option>
+                                <option value="media">🟡 Media - Atención Urgente</option>
+                                <option value="baja">🟢 Baja - No Crítico</option>
                             </select>
                         </div>
 
@@ -526,12 +629,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <!-- Replaced hospital emoji with SVG icon -->
                             <label class="form-label">
                                 <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                                    <path d="M12 2v20"/>
-                                    <path d="M8 12h8"/>
                                 </svg>
                                 Hospital Asignado (Automático)
                             </label>
@@ -539,7 +639,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <!-- Replaced clock emoji with SVG icon -->
                             <label class="form-label">
                                 <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <circle cx="12" cy="12" r="10"/>
@@ -578,7 +677,13 @@
 
                         <div class="mb-3">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <label class="form-label mb-0">Descripción Visual</label>
+                                <label class="form-label mb-0">
+                                    <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                    Descripción Visual
+                                </label>
                                 <button type="button" class="btn btn-ai" onclick="mejorarTextoIA('descripcion')">
                                     <svg class="chatgpt-logo" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/>
@@ -591,7 +696,6 @@
 
                         <div class="row g-3 mb-3">
                             <div class="col-6">
-                                <!-- Replaced users emoji with SVG icon -->
                                 <label class="form-label">
                                     <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -604,22 +708,35 @@
                                 <input type="number" name="numero_victimas" class="form-control" placeholder="Cantidad">
                             </div>
                             <div class="col-6">
-                                <!-- Replaced medical symbol emoji with SVG icon -->
                                 <label class="form-label">
                                     <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M12 2v20"/>
                                         <path d="M2 12h20"/>
-                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
                                     </svg>
                                     Gravedad
                                 </label>
-                                <input type="text" name="gravedad_heridos" class="form-control" placeholder="Leve/Grave">
+                                <select name="gravedad_heridos" class="form-select">
+                                    <option value="">Seleccionar...</option>
+                                    <option value="leve">Leve</option>
+                                    <option value="moderada">Moderada</option>
+                                    <option value="grave">Grave</option>
+                                    <option value="critica">Crítica</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <label class="form-label mb-0">Observaciones</label>
+                                <label class="form-label mb-0">
+                                    <svg class="label-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                        <polyline points="14 2 14 8 20 8"/>
+                                        <line x1="16" y1="13" x2="8" y2="13"/>
+                                        <line x1="16" y1="17" x2="8" y2="17"/>
+                                        <polyline points="10 9 9 9 8 9"/>
+                                    </svg>
+                                    Observaciones
+                                </label>
                                 <button type="button" class="btn btn-ai" onclick="mejorarTextoIA('observaciones')">
                                     <svg class="chatgpt-logo" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/>
@@ -645,6 +762,9 @@
         </div>
     </div>
 </div>
+
+<!-- Added SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Scripts -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -687,6 +807,19 @@ function calcularHospitalCercano(lat, lng) {
     return hospitalCercano;
 }
 
+function updateLiveStats() {
+    const lat = document.getElementById('lat').value;
+    const lng = document.getElementById('lng').value;
+    const now = new Date();
+    
+    document.getElementById('stats-lat').textContent = lat ? parseFloat(lat).toFixed(4) : '--';
+    document.getElementById('stats-lng').textContent = lng ? parseFloat(lng).toFixed(4) : '--';
+    document.getElementById('stats-time').textContent = now.toLocaleTimeString('es-MX', { hour: '2-digit', minute: '2-digit' });
+}
+
+// Update stats every second
+setInterval(updateLiveStats, 1000);
+
 // --- Inicialización del Video ---
 document.addEventListener("DOMContentLoaded", () => {
     const video = document.getElementById('video-dron');
@@ -712,9 +845,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         attribution: '&copy; OpenStreetMap'
     }).addTo(mapa);
 
-    const marker = L.marker([dronCoords.lat, dronCoords.lng], { draggable: true })
+    const redIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
+    const marker = L.marker([dronCoords.lat, dronCoords.lng], { 
+        draggable: true,
+        icon: redIcon
+    })
         .addTo(mapa)
-        .bindPopup("Punto de incidente")
+        .bindPopup("<strong>📍 Punto de Incidente</strong><br/>Arrastra para reposicionar")
         .openPopup();
 
     function updateCoords(lat, lng) {
@@ -724,17 +869,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         
         const hospital = calcularHospitalCercano(lat, lng);
         document.getElementById('hospital_asignado').value = hospital;
+        
+        updateLiveStats();
     }
 
     marker.on('dragend', function() {
         const pos = marker.getLatLng();
         updateCoords(pos.lat, pos.lng);
+        
+        Swal.fire({
+            icon: 'info',
+            title: 'Ubicación Actualizada',
+            text: `Hospital asignado: ${document.getElementById('hospital_asignado').value}`,
+            timer: 2000,
+            showConfirmButton: false,
+            toast: true,
+            position: 'top-end'
+        });
     });
 
     updateCoords(dronCoords.lat, dronCoords.lng);
 });
 
-// --- Despacho Rápido ---
 document.getElementById('btn-despacho-rapido').addEventListener('click', async function() {
     const btn = this;
     const lat = document.getElementById('lat').value;
@@ -742,14 +898,44 @@ document.getElementById('btn-despacho-rapido').addEventListener('click', async f
     const hospital = document.getElementById('hospital_asignado').value;
 
     if(!tipo) {
-        alert("Por favor ingresa el TIPO de incidente.");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campo Requerido',
+            text: 'Por favor ingresa el TIPO de incidente antes de despachar.',
+            confirmButtonColor: '#dc2626',
+            confirmButtonText: 'Entendido'
+        });
         document.getElementById('tipo').focus();
         return;
     }
 
+    // Show confirmation dialog
+    const result = await Swal.fire({
+        title: '¿Despachar Ambulancia?',
+        html: `
+            <div style="text-align: left; padding: 1rem;">
+                <p style="margin-bottom: 0.75rem;"><strong>Tipo:</strong> ${tipo}</p>
+                <p style="margin-bottom: 0.75rem;"><strong>Hospital:</strong> ${hospital}</p>
+                <p style="margin-bottom: 0.75rem;"><strong>Ubicación:</strong> Lat ${lat}, Lng ${document.getElementById('lng').value}</p>
+                <p style="margin-top: 1rem; color: #dc2626; font-weight: 600;">Esta acción despachará una unidad de emergencia inmediatamente.</p>
+            </div>
+        `,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#dc2626',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: 'Sí, Despachar Ahora',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    });
+
+    if (!result.isConfirmed) {
+        return;
+    }
+
     btn.disabled = true;
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<span>DESPACHANDO...</span>';
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span><span>DESPACHANDO...</span>';
 
     const payload = {
         lat: lat,
@@ -784,17 +970,135 @@ document.getElementById('btn-despacho-rapido').addEventListener('click', async f
             const form = document.getElementById('form-incidente');
             form.action = "/incidentes/" + incidentId;
             document.getElementById('method-field-container').innerHTML = '<input type="hidden" name="_method" value="PUT">';
-            document.getElementById('btn-submit-final').innerText = "Actualizar Informe";
+            document.getElementById('btn-submit-final').innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Actualizar Informe';
             
-            alert("Unidad despachada desde " + hospital);
+            await Swal.fire({
+                icon: 'success',
+                title: 'Ambulancia Despachada',
+                html: `
+                    <div style="text-align: left; padding: 1rem;">
+                        <p style="margin-bottom: 0.5rem;"> <strong>Hospital:</strong> ${hospital}</p>
+                        <p style="margin-bottom: 0.5rem;"> <strong>ID del Incidente:</strong> #${data.id}</p>
+                        <p style="margin-top: 1rem; padding: 0.75rem; background: #fef3c7; border-radius: 0.5rem; color: #92400e;">
+                            💡 Ahora puedes completar los detalles adicionales del incidente y guardar el informe completo.
+                        </p>
+                    </div>
+                `,
+                confirmButtonColor: '#10b981',
+                confirmButtonText: 'Continuar',
+                timer: 5000
+            });
         } else {
             throw new Error(data.message || 'Error en servidor');
         }
     } catch (error) {
         console.error(error);
-        alert("Error: " + error.message);
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Error al Despachar',
+            text: error.message,
+            confirmButtonColor: '#dc2626',
+            confirmButtonText: 'Entendido'
+        });
+        
         btn.disabled = false;
-        btn.innerHTML = originalText;
+        btn.innerHTML = originalHTML;
+    }
+});
+
+document.getElementById('form-incidente').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const isUpdate = document.getElementById('incidente_id').value !== '';
+    
+    // Show confirmation
+    const result = await Swal.fire({
+        title: isUpdate ? ' ¿Actualizar Informe?' : ' ¿Guardar Informe?',
+        text: isUpdate ? 'Se actualizarán los datos del incidente.' : 'Se guardará el informe completo del incidente.',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#2563eb',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: isUpdate ? 'Sí, Actualizar' : 'Sí, Guardar',
+        cancelButtonText: 'Cancelar',
+        reverseButtons: true
+    });
+
+    if (!result.isConfirmed) {
+        return;
+    }
+
+    // Show loading
+    Swal.fire({
+        title: 'Guardando...',
+        text: 'Por favor espera mientras se guarda el informe.',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
+    try {
+        const response = await fetch(this.action, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value,
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+const result = await Swal.fire({
+    icon: 'success',
+    title: isUpdate ? 'Informe Actualizado' : 'Informe Guardado',
+    html: `
+        <div style="text-align: center; padding: 1rem;">
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                El informe del incidente ha sido ${isUpdate ? 'actualizado' : 'guardado'} exitosamente.
+            </p>
+            <div style="background: #f0f9ff; padding: 1rem; border-radius: 0.75rem; margin-top: 1rem;">
+                <p style="margin: 0; color: #1e40af; font-weight: 600;">
+                    ID: #${data.id || incidentId}
+                </p>
+            </div>
+        </div>
+    `,
+    showCancelButton: true,
+    confirmButtonColor: '#10b981',
+    cancelButtonColor: '#6b7280',
+    confirmButtonText: 'Ver reportes',
+    cancelButtonText: 'Permanecer aquí',
+    allowOutsideClick: false
+});
+
+if (result.isConfirmed) {
+    window.location.href = '/reportes/incidentes';
+}
+
+
+            // Redirect or reset form
+            if (data.redirect) {
+                window.location.href = data.redirect;
+            }
+        } else {
+            throw new Error(data.message || 'Error al guardar');
+        }
+    } catch (error) {
+        console.error(error);
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Error al Guardar',
+            text: error.message,
+            confirmButtonColor: '#dc2626',
+            confirmButtonText: 'Entendido'
+        });
     }
 });
 
@@ -806,13 +1110,19 @@ async function mejorarTextoIA(campoId) {
     const textoBtnOriginal = btn.innerHTML;
 
     if (!textoActual || textoActual.length < 3) {
-        alert("Escribe al menos unas palabras para que la IA funcione.");
+        Swal.fire({
+            icon: 'info',
+            title: 'Texto Insuficiente',
+            text: 'Escribe al menos unas palabras para que la IA pueda optimizar el texto.',
+            confirmButtonColor: '#10a37f',
+            confirmButtonText: 'Entendido'
+        });
         input.focus();
         return;
     }
 
     btn.disabled = true;
-    btn.innerHTML = '<svg class="chatgpt-logo" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg><span>Procesando...</span>';
+    btn.innerHTML = '<svg class="chatgpt-logo" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="3"><animate attributeName="r" values="3;5;3" dur="1s" repeatCount="indefinite"/></circle></svg><span>Procesando...</span>';
     input.style.backgroundColor = '#f3f4f6';
 
     try {
@@ -833,16 +1143,33 @@ async function mejorarTextoIA(campoId) {
             input.style.transform = "scale(1.02)";
             input.value = data.optimizado;
             
+            Swal.fire({
+                icon: 'success',
+                title: 'Texto Mejorado',
+                text: 'La IA ha optimizado tu texto.',
+                timer: 2000,
+                showConfirmButton: false,
+                toast: true,
+                position: 'top-end'
+            });
+            
             setTimeout(() => {
                 input.style.backgroundColor = "";
                 input.style.transform = "scale(1)";
             }, 1000);
         } else {
-            alert("Error IA: " + data.message);
+            throw new Error(data.message || 'Error en el servicio de IA');
         }
     } catch (error) {
         console.error(error);
-        alert("Error conectando con el servicio de IA.");
+        
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de IA',
+            text: 'No se pudo conectar con el servicio de IA. Intenta nuevamente.',
+            confirmButtonColor: '#dc2626',
+            confirmButtonText: 'Entendido'
+        });
     } finally {
         btn.disabled = false;
         btn.innerHTML = textoBtnOriginal;
